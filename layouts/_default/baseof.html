@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode }}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <base href="{{ .Site.BaseURL }}" />
-    <title>{{ block "title" . }}{{ .Site.Title }} {{ end }}</title>
+    {{- partial "head.html" . }}
   </head>
   <body>
-    <!-- Code that all your templates share, like a header -->
+    {{ partialCached "header.html" . }}
     {{ block "main" . }}
-    <!-- The part of the page that begins to differ between templates -->
-    {{ end }} {{ block "footer" . }}
-    <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
-    {{ end }}
+    {{ end }} 
+    {{ partialCached "footer.html" . }}
   </body>
 </html>

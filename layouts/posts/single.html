@@ -1,8 +1,8 @@
 {{ define "main" }}
-<section id="main">
-  <h1 id="title">{{ .Title }}</h1>
+<section class="container mx-auto text-gray-600">
+  <h1 class="text-3xl font-medium">{{ .Title }}</h1>
   <div class="justify-center">
-    <article class="prose">{{ .Content }}</article>
+    <article class="prose ">{{ .Content }}</article>
   </div>
 </section>
 {{ end }}

@@ -10,3 +10,8 @@ git submodule add https://github.com/zhuxining/hugo-tailwind-theme.git themes/ta
 
 
 
+## dev
+
+```bash
+npx tailwindcss -i ./assets/tailwindcss.css -o ./assets/styles.css --minify
+```
