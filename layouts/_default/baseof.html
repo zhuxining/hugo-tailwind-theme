@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="{{ $.Site.LanguageCode }}">
-  <head>
-    {{- partial "head.html" . }}
-  </head>
-  <body>
-    {{ partialCached "header.html" . }}
-    {{ block "main" . }}
-    {{ end }} 
-    {{ partialCached "footer.html" . }}
-  </body>
+<html lang="{{ $.Site.LanguageCode | default " en" }}">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	{{ $styles := resources.Get "styles.css" | minify | fingerprint}}
+	<link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" />
+	<!-- <script src="https://cdn.tailwindcss.com?plugins=typography"></script> -->
+	<base href="{{ .Site.BaseURL }}" />
+	<title>{{ block "title" . }}{{ .Site.Title }} {{ end }}</title>
+</head>
+
+<body>
+	{{ partialCached "header.html" . }}
+	{{ block "main" . }} {{ end }}
+	{{ partialCached "footer.html" . }}
+</body>
+
 </html>
